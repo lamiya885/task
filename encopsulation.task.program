@@ -1,0 +1,43 @@
+﻿namespace Encapsulation.task
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Book book=new Book(125,12,"Deli kur-I.Shixli","roman");
+            book.ShowFullInfo();
+
+            Book[] books = new Book[5];
+            books[0].Price = 12;
+            books[0].Genre = "roman";
+            books[0].Name = " Deli kur-I. Shixli";
+            books[0].No = 125;
+            books[0].Count = 19;
+            books[1].Price = 12;
+            books[1].Genre = "roman";
+            books[1].Name = " iki od arasinda-Y.Cemenzeminli";
+            books[1].No = 235;
+            books[1].Count = 15;
+            books[2].Price = 13;
+            books[2].Genre = "roman";
+            books[2].Name = " qetl gunu-S.Vurgun";
+            books[2].No = 345;
+            books[2].Count = 30;
+            books[3].Price = 14;
+            books[3].Genre = "roman";
+            books[3].Name = " ecel zengi-E. Heminquey";
+            books[3].No = 23;
+            books[3].Count = 34;
+            books[4].Price = 17;
+            books[4].Genre = "nagil";
+            books[4].Name = " Azərbaycan nagillari ";
+            books[4].No = 365;
+            books[4].Count = 17;
+
+            Library library = new Library(books,"roman");
+            library.AddBook(book);
+            library.GetFilterBooks("roman");
+            library.GetFilterBooks( 3,15);
+        }
+    }
+}

@@ -1,0 +1,77 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Encapsulation.task
+{
+    public class Library : Book
+    {
+        Book[] Books;
+
+
+        public Library(string genre) : base(genre)
+        {
+            Genre = genre;
+        }
+        public Library(Book[] books, string genre):base(genre)
+        {
+            Book[] Books=new Book[books.Length];
+        }
+
+        public void AddBook(Book book)
+        {
+
+
+            Book foundBook = null; ;
+            Book[] newbooks = new Book[Books.Length + 1];
+
+            foreach (var item in Books)
+            {
+                foundBook = item;
+            }
+            newbooks[^1] = book;
+            Console.WriteLine(foundBook);
+        }
+        public void GetFilterBooks(string genre)
+        {
+            Book founderBook = null;
+            //foreach (var item in books)
+            //{ 
+            //if (item.Genre=genre)
+            //    {
+            //        founderBook = item;
+            //    }
+            //}
+            for (int i = 0; i < Books.Length; i++)
+            {
+                if (Books[i].Genre == genre)
+                {
+                    founderBook = Books[i];
+                }
+            }
+            Console.WriteLine(founderBook);
+        }
+
+
+        public Book GetFilterBooks(int minPrice, int maxPrice)
+        {
+            Book founderBook = null;
+            for (int i = 0; i < Books.Length; i++)
+            {
+                if (Books[i].Price > +minPrice && Books[i].Price <= maxPrice)
+                {
+                    return Books[i];
+                }
+                founderBook= Books[i];
+            }
+            return founderBook;
+
+        }
+         public void ShowAllBook()
+        {
+            Console.WriteLine($" mehsulun nomresi:{No}, mehsulun sayi:{Count},mehsulun qiymeti:{Price}mehsulun adi:{Name},mehsulun janri:{Genre}");
+        }
+    }
+}
